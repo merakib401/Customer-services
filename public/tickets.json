@@ -1,0 +1,111 @@
+
+[
+  {
+    "id": 1,
+    "title": "Login page not working",
+    "description": "The user is unable to log in to their account despite entering the correct username and password. The login page displays an error message after submitting the credentials, preventing the user from accessing their dashboard and using the available services.",
+    "customer": "Rahim Uddin",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-01"
+  },
+  {
+    "id": 2,
+    "title": "Payment failed",
+    "description": "The customer attempted to complete a payment, but the transaction was declined even though the money was deducted from their bank account. ",
+    "customer": "Nusrat Jahan",
+    "priority": "High",
+    "status": "In Progress",
+    "createdAt": "2026-03-01"
+  },
+  {
+    "id": 3,
+    "title": "Password reset email not received",
+    "description": "The customer requested a password reset link but has not received the email in their inbox. They have checked their spam and junk folders but could not find the message. As a result, they are unable to reset their password and regain access to their account.",
+    "customer": "Imran Hossain",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2026-03-02"
+  },
+  {
+    "id": 4,
+    "title": "Website loading slow",
+    "description": "The website homepage is taking an unusually long time to load, making it difficult for users to navigate the platform smoothly. The loading delay occurs when opening the website and accessing different sections. The issue may affect the overall user experience and needs further investigation to identify the cause.",
+    "customer": "Sadia Islam",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdAt": "2026-03-02"
+  },
+  {
+    "id": 5,
+    "title": "Order not delivered",
+    "description": "The customer placed an order with order number #4532, but the package has still not been delivered within the expected timeframe.",
+    "customer": "Tanvir Ahmed",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-02"
+  },
+  {
+    "id": 6,
+    "title": "Profile picture upload error",
+    "description": "The customer is experiencing an error while trying to upload a new profile picture to their account. The upload process either fails to complete or displays an error message after selecting an image. The customer has attempted to update the profile picture multiple times, but the image is still not being saved successfully.",
+    "customer": "Mim Akter",
+    "priority": "Low",
+    "status": "Open",
+    "createdAt": "2026-03-03"
+  },
+  {
+    "id": 7,
+    "title": "App crashing on checkout",
+    "description": "The mobile application unexpectedly crashes whenever the customer tries to proceed to the checkout page. The issue prevents the customer from reviewing their order details and completing the purchase. The application may close completely during the checkout process, making it impossible to finish the transaction without resolving the underlying problem.",
+    "customer": "Arif Khan",
+    "priority": "High",
+    "status": "In Progress",
+    "createdAt": "2026-03-03"
+  },
+  {
+    "id": 8,
+    "title": "Coupon code not applying",
+    "description": "The customer is unable to apply a discount coupon during checkout, even though they believe the coupon should be valid for their purchase. The website displays an invalid coupon error after the code is entered. The customer wants the support team to verify the coupon's validity, check any applicable restrictions, and help them receive the correct discount.",
+    "customer": "Farhana Rahman",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2026-03-03"
+  },
+  {
+    "id": 9,
+    "title": "Account suspended unexpectedly",
+    "description": "The customer's account has been suspended unexpectedly, and they have not received a clear explanation for the restriction. They are unable to log in or access the services associated with their account. The customer wants the support team to review the suspension, identify the reason behind it, and explain the steps required to restore access.",
+    "customer": "Mahmudul Hasan",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-03"
+  },
+  {
+    "id": 10,
+    "title": "Notification not working",
+    "description": "The customer is not receiving push notifications from the mobile application, including important updates and activity alerts. Notifications appear to be missing even when relevant events occur within the app. The customer has noticed that they are missing timely information and needs assistance checking notification settings and identifying why the alerts are not being delivered.",
+    "customer": "Rupa Das",
+    "priority": "Low",
+    "status": "Open",
+    "createdAt": "2026-03-04"
+  },
+  {
+    "id": 11,
+    "title": "Refund not processed",
+    "description": "The customer submitted a refund request seven days ago, but the refund has not yet been processed or credited back to their original payment method. The customer has been waiting for an update and is concerned about the delay. The support team needs to review the refund request, verify its current status, and provide a clear explanation of when the customer can expect to receive the money.",
+    "customer": "Jahidul Islam",
+    "priority": "High",
+    "status": "In Progress",
+    "createdAt": "2026-03-04"
+  },
+  {
+    "id": 12,
+    "title": "Search feature not showing results",
+    "description": "The website search feature is returning empty results even when the customer enters keywords that should match existing products or content. This issue makes it difficult for users to find the information they need through the search bar. The support team needs to investigate the search functionality, verify how search queries are processed, and identify why relevant results are not being displayed.",
+    "customer": "Shila Akter",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2026-03-04"
+  }
+]

@@ -1,7 +1,7 @@
 export default function Bannar() {
   return (
     <div className="flex max-w-11/12 mx-auto justify-between gap-4 mt-5">
-      <div className="relative mx-auto w-full overflow-hidden rounded-lg bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-4 py-16 text-center text-white">
+      <div className="relative mx-auto w-full overflow-hidden rounded-lg bg-linear-to-r from-[#632EE3] to-[#9F62F2] px-4 py-16 text-center text-white">
         {/* Curved Line Image */}
         <img
           src="/src/assets/vector1.png"
