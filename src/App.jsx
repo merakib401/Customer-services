@@ -9,9 +9,8 @@ const fetchTickets = async () => {
   const res = await fetch("/tickets.json");
   return res.json();
 };
-  const promiseTickets = fetchTickets();
+const promiseTickets = fetchTickets();
 function App() {
-
   const [inProgress, setInProgress] = useState([]); // select করা tickets
   const [resolved, setResolved] = useState([]); // complete করা tickets
 
@@ -22,7 +21,13 @@ function App() {
         inProgressCount={inProgress.length}
         resolvedCount={resolved.length}
       ></Bannar>
-      <Suspense fallback="loadinggg....">
+      <Suspense
+        fallback={
+          <div className="flex justify-center items-center min-h-50">
+            <span className="loading loading-spinner loading-lg "></span>{" "}
+          </div>
+        }
+      >
         <Card
           promiseTickets={promiseTickets}
           inProgress={inProgress}
