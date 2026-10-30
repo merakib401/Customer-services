@@ -1,26 +1,52 @@
 import { use } from "react";
 
-export default function Card({ promiseTickets }) {
+export default function Card({
+  promiseTickets,
+  inProgress,
+  setInProgress,
+  resolved,
+  setResolved,
+}) {
   const ticketsData = use(promiseTickets);
-  // console.log(ticketsData);
+
+  const visibleTickets = ticketsData.filter(
+    (t) => !resolved.some((r) => r.id === t.id),
+  );
+
+
+  const handleClick = (ticket) => {
+    const alreadyAdded = inProgress.some((item) => item.id === ticket.id);
+    if (alreadyAdded) return;
+
+    setInProgress([...inProgress, ticket]);
+  };
+
+  
+  const handleComplete = (ticket) => {
+    setInProgress(inProgress.filter((item) => item.id !== ticket.id));
+    setResolved([...resolved, ticket]);
+  };
 
   return (
     <div className="max-w-11/12 mx-auto mt-8">
-      <p>Customer Tickets</p>
+      <p className="text-2xl font-semibold">Customer Tickets</p>
 
       <section className="grid grid-cols-12 gap-6 mt-4">
         {/* Main Content */}
         <section className="col-span-12 lg:col-span-9">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {ticketsData.map((ticket) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {visibleTickets.map((ticket) => (
               <div
                 key={ticket.id}
-                className="card w-full bg-white card-sm shadow-sm"
+                className="card w-full bg-white card-sm shadow-sm "
+                onClick={() => handleClick(ticket)}
               >
                 <div className="card-body">
                   <div className="flex justify-between items-center gap-2">
                     <h2 className="card-title">{ticket.title}</h2>
-                    <button className={`btn  rounded-3xl text-[16px] ${ticket.span == "Open" ? "text-[#0B5E06] bg-[#10341d]" : ticket.status == "In Progress" ? "text-[#9C7700] bg-[#F8F3B9] " : "text-[#9C7700] bg-[#eeeac3]"}`}>
+                    <button
+                      className={`btn  rounded-3xl text-[16px] ${ticket.span == "Open" ? "text-[#0B5E06] bg-[#10341d]" : ticket.status == "In Progress" ? "text-[#9C7700] bg-[#F8F3B9] " : "text-[#9C7700] bg-[#eeeac3]"}`}
+                    >
                       {ticket.status}
                     </button>
                   </div>
@@ -30,7 +56,11 @@ export default function Card({ promiseTickets }) {
                   <div className="flex justify-between gap-3 card-actions">
                     <div className="flex gap-3 text-sm">
                       <p>{ticket.id}</p>
-                      <p  className={`font-bold ${ticket.priority == "High" ? "text-[#F83044]" : ticket.priority == "Medium" ? "text-[#FEBB0C]" : "text-[#02A53B]"}`}>{ticket.priority}</p>
+                      <p
+                        className={`font-bold ${ticket.priority == "High" ? "text-[#F83044]" : ticket.priority == "Medium" ? "text-[#FEBB0C]" : "text-[#02A53B]"}`}
+                      >
+                        {ticket.priority}
+                      </p>
                     </div>
 
                     <div className="flex gap-3 text-sm text-gray-400">
@@ -48,26 +78,43 @@ export default function Card({ promiseTickets }) {
         <section className="col-span-12 lg:col-span-3">
           <div className="bg-white shadow-sm rounded-lg p-4">
             <div>
-              <h2 className="text-[24px] font-semibold ">
-                Task Status
-              </h2>
+              <h2 className="text-[24px] font-semibold ">Task Status</h2>
               <div className="space-y-4">
-                <p className="text-[#627382]">
-                  Select a ticket to add to Task Status
-                </p>
-                <div className="bg-white p-4 rounded-xl shadow-sm">
-                  <h3 className="font-semibold mb-3">Billing discrepancy</h3>
-                  <button className="w-full btn bg-green-500 text-white py-2 rounded-lg">
-                    Complete
-                  </button>
-                </div>
-                <h2 className="text-[24px] font-semibold pt-4">
-                  Resolved Task
-                </h2>
-                <p className="text-[#627382]">No resolved tasks yet.</p>
-                <div className="bg-blue-200 p-4 rounded-xl">
-                  Login issues on mobile
-                </div>
+                {inProgress.length === 0 ? (
+                  <p className="text-[#627382]">
+                    Select a ticket to add to Task Status
+                  </p>
+                ) : (
+                  inProgress.map((ticket) => (
+                    <div
+                      key={ticket.id}
+                      className="rounded-lg bg-gray-50 p-4 shadow-sm"
+                    >
+                      <h3 className="font-semibold">{ticket.title}</h3>
+
+                      <button
+                        className="mt-3 w-full rounded-lg bg-green-600 py-2 text-white"
+                        onClick={() => handleComplete(ticket)}
+                      >
+                        Complete
+                      </button>
+                    </div>
+                  ))
+                )}
+                <h2 className="pt-4 text-2xl font-semibold">Resolved Task</h2>
+
+                {resolved.length === 0 ? (
+                  <p className="text-[#627382]">No resolved tasks yet.</p>
+                ) : (
+                  resolved.map((ticket) => (
+                    <div
+                      key={ticket.id}
+                      className="rounded-lg bg-green-50 p-4 shadow-sm"
+                    >
+                      <h3 className="font-semibold">{ticket.title}</h3>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>

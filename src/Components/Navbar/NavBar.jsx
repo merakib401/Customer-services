@@ -48,7 +48,7 @@ export default function NavBar() {
             </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">CS — Ticket System</a>
+          <a className="btn btn-ghost md:text-xl">CS — Ticket System</a>
         </div>
 
         
